@@ -7,7 +7,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo '✓ Chief of Staff activated'"
+            "command": "echo '✓ Chief of Staff activated — BEGIN with the greeting, then respond to user'"
           }
         ]
       }
