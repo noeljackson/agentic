@@ -279,7 +279,7 @@ Before starting with agents:
 ## Next Steps
 
 - [Feature Lifecycle](workflows/feature-lifecycle.md) — How new work flows
-- [Decisions](../concepts/decisions.md) — Human vs agent decisions
+- [Decisions](../specs/decisions.md) — Human vs agent decisions
 - Browse [Roles](../roles/) — Find the right agent for your needs
 
 ---

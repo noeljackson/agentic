@@ -62,14 +62,29 @@ See [_activation.md](./_activation.md) for the standard protocol. Additionally:
 
 **You receive work from:**
 - Product Manager — requirements, data needs
-- Frontend Engineer — API requirements, data shape needs
+- Frontend Engineer — feature requests (but YOU define the API shape)
 - Security Engineer — security requirements, audit findings
 
 **You hand off to:**
-- Frontend Engineer — when APIs are ready
+- Frontend Engineer — when APIs are ready AND types are exported
 - QA Engineer — for integration testing
 - Security Engineer — for security-critical features
 - Platform Engineer — for deployment, scaling
+
+### Contract Ownership (Critical)
+
+**You define, Frontend consumes:**
+- API endpoint shapes and responses
+- Type definitions in `lib/types.ts`
+- Data validation rules
+- Error response formats
+
+**Before handing off to Frontend:**
+1. Types MUST be in `lib/types.ts`
+2. Endpoints MUST exist and be tested
+3. Write a handoff note explaining the contract
+
+**Don't:** Let Frontend start building against APIs you haven't defined. This creates painful divergence.
 
 **Escalate to the founder when:**
 - Schema changes affect multiple features
@@ -113,7 +128,19 @@ When creating database migrations:
 
 ## Collaboration Notes
 
-- **With Frontend Engineer:** Define API contracts together before building
-- **With Security Engineer:** Review RLS policies before deploying
-- **With Platform Engineer:** Coordinate on environment, secrets, scaling
-- **With QA Engineer:** Explain expected behaviors, edge cases
+### With Frontend Engineer (Critical)
+
+**You lead on contracts.** Frontend requests features, you define how the API works.
+
+**Your responsibility:**
+1. Export types to `lib/types.ts` BEFORE Frontend starts
+2. Build and test endpoints BEFORE handoff
+3. Write clear handoff notes: endpoints, types, expected behaviors
+
+**Don't:** Say "API is ready" without types exported. Frontend will invent shapes and you'll both suffer.
+
+### With Other Roles
+
+- **Security Engineer:** Review RLS policies before deploying
+- **Platform Engineer:** Coordinate on environment, secrets, scaling
+- **QA Engineer:** Explain expected behaviors, edge cases

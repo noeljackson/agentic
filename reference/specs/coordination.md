@@ -1,6 +1,26 @@
-# Communication
+# Coordination
 
 Agents communicate through shared documentation. No hidden state, no private channels.
+
+---
+
+## Status Vocabulary
+
+Use these standardized values in `_AGENTS.md` status fields:
+
+| Status | Meaning |
+|--------|---------|
+| **Not Started** | Not yet begun |
+| **In Progress** | Active work |
+| **Blocked** | Waiting on external input (specify what) |
+| **Complete** | Done, ready for handoff |
+| **On Hold** | Intentionally paused |
+
+**Dates:** ISO format (YYYY-MM-DD)
+**File references:** Include line numbers when relevant (`path/to/file.ts:42`)
+**Handoffs:** Always explain "why it's built this way", not just what was done
+
+---
 
 ## The _AGENTS.md File
 
@@ -232,7 +252,7 @@ _AGENTS.md tracks active work packages:
 | Notifications | Spec | User Auth complete |
 ```
 
-See [Work Packages](work-packages.md) for the full concept.
+See [Work Packages](../concepts/work-packages.md) for the full concept.
 
 ## Solo Founder Optimization
 

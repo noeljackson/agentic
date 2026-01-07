@@ -110,7 +110,7 @@ Agents communicate through `_AGENTS.md`:
 - Cross-agent notes capture handoffs
 - You maintain the overall state
 
-See [communication.md](../concepts/communication.md)
+See [coordination.md](../specs/coordination.md)
 
 ### Decisions
 
@@ -119,7 +119,7 @@ Agents and humans share decision-making:
 - Agents surface boundary decisions to you
 - You make judgment calls and trade-offs
 
-See [decisions.md](../concepts/decisions.md)
+See [decisions.md](../specs/decisions.md)
 
 ---
 
@@ -156,7 +156,7 @@ Agents make you more effective — they don't replace your judgment.
 
 ## Next Steps
 
-1. **Read the concepts** — [Thinking Modes](../concepts/thinking-modes.md), [Decisions](../concepts/decisions.md)
+1. **Read the concepts** — [Thinking Modes](../concepts/thinking-modes.md), [Decisions](../specs/decisions.md)
 2. **Browse the roles** — See what each agent does
 3. **Start a project** — [New Project](new-project.md) or [Existing Project](existing-project.md)
 4. **Experiment** — Activate an agent, see how it works

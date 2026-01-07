@@ -354,7 +354,7 @@ Smaller features, shipped faster, are better than big bangs.
 
 - [New Project](../new-project.md) — Starting from scratch
 - [Existing Project](../existing-project.md) — Adopting for existing code
-- [Decisions](../../concepts/decisions.md) — When to escalate
+- [Decisions](../../specs/decisions.md) — When to escalate
 
 ---
 

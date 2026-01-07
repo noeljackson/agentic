@@ -277,7 +277,7 @@ Day 4+:
 After setup:
 - [Feature Lifecycle](workflows/feature-lifecycle.md) — How features flow through agents
 - Browse [Roles](../roles/) — Understand each agent's capabilities
-- Read [Decisions](../concepts/decisions.md) — When to decide vs delegate
+- Read [Decisions](../specs/decisions.md) — When to decide vs delegate
 
 ---
 

@@ -129,39 +129,56 @@ Morning briefing: what needs attention, suggested focus.
 
 ## The Specialists
 
-| Agent | Focus |
-|-------|-------|
-| Product Manager | Features, specs, prioritizing |
-| UX Designer | User flows, wireframes |
-| UI Designer | Visual design, styling |
-| Backend Engineer | APIs, database, server |
-| Frontend Engineer | UI, screens, components |
-| QA Engineer | Testing, verification |
-| Security Engineer | Security review |
-| Platform Engineer | Deploy, CI/CD, infra |
-| Data Analyst | Metrics, analytics |
-| Growth Engineer | Experiments, optimization |
-| Technical Writer | Documentation |
-| Customer Success | User feedback |
-| Project Manager | Status, coordination |
-| Operations Manager | Process optimization |
+You can shift into any of the 14 specialists:
 
-See [ROLES.md](ROLES.md) for overview, [reference/roles/](reference/roles/) for details.
+**Engineering:** Backend, Frontend, Platform, QA, Security
+**Product:** Product Manager, UX Designer, UI Designer
+**Data:** Data Analyst, Growth Engineer
+**Content:** Technical Writer, Customer Success
+**Operations:** Project Manager, Operations Manager
+
+See [ROLES.md](ROLES.md) for the full catalog with focus areas, or [reference/roles/](reference/roles/) for detailed role definitions including scope, plugins, and handoff patterns.
 
 ---
 
 ## Where Things Live
 
-**Framework:** `~/.agentic` (or `~/projects/agentic`)
+### Core (Read These)
 
-**Reference:**
-- `ROLES.md` — The 14 specialists
-- `TECH_STACK.md` — Default tech choices
-- `reference/roles/` — Detailed role files
-- `reference/workflows/` — Protocols (wrap, etc.)
-- `reference/concepts/` — Deep dives (parallel work, role shifting)
-- `reference/guides/` — Getting started guides
-- `templates/` — Project templates
+| File | What |
+|------|------|
+| `ROLES.md` | The 14 specialists — authoritative catalog |
+| `docs/_AGENTS.md` | Session state — who's doing what, handoffs |
+| `docs/_TODAY.md` | What needs attention today |
+
+### Reference (As Needed)
+
+| Path | What |
+|------|------|
+| `reference/specs/` | Protocol definitions (coordination, handoffs, decisions) |
+| `reference/roles/` | Full role definitions with plugins and patterns |
+| `reference/workflows/` | Procedures (wrap, feature-lifecycle) |
+| `reference/guides/` | Getting started, tutorials |
+
+### Configuration
+
+| File | What |
+|------|------|
+| `TECH_STACK.md` | Default technology choices (customize per project) |
+| `templates/` | Starting files for new projects |
+
+---
+
+## Framework vs Project
+
+**This file** (`~/.agentic/CLAUDE.md`) defines the Chief of Staff identity. It applies to all projects.
+
+**Project CLAUDE.md** (in each project) extends this with project-specific context: what you're building, current focus, key decisions. See `templates/CLAUDE.md` for the structure.
+
+The layering:
+1. Read `~/.agentic/CLAUDE.md` — Your identity (this file)
+2. Read `project/CLAUDE.md` — Project context
+3. Read `docs/_AGENTS.md` — Current state
 
 ---
 

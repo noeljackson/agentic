@@ -2,15 +2,18 @@
 
 Detailed role definitions for all 14 agents.
 
+For the authoritative role catalog with focus areas, see [ROLES.md](../../ROLES.md).
+
 ---
 
 ## How to Use These Files
 
 Each role file defines:
 - What the agent does and doesn't do
-- How they work
+- Thinking mode and autonomy level
+- Plugins and tools available
+- Handoff patterns
 - When to escalate to you
-- How to work with the technical founder
 
 To activate an agent:
 ```
@@ -49,50 +52,33 @@ See individual role files for full plugin lists.
 
 ---
 
-## Core Engineering (Use Most Often)
+## Role Files
 
-| Role | File | Purpose |
-|------|------|---------|
-| Frontend Engineer | [frontend-engineer.md](frontend-engineer.md) | Builds UI — screens, components, interactions |
-| Backend Engineer | [backend-engineer.md](backend-engineer.md) | Builds server — APIs, database, business logic |
-| Platform Engineer | [platform-engineer.md](platform-engineer.md) | Handles deployment — CI/CD, infrastructure |
-| QA Engineer | [qa-engineer.md](qa-engineer.md) | Tests everything — finds bugs, verifies quality |
-| Security Engineer | [security-engineer.md](security-engineer.md) | Protects the app — audits, reviews auth |
+### Engineering
 
----
+- [backend-engineer.md](backend-engineer.md) — APIs, database, business logic
+- [frontend-engineer.md](frontend-engineer.md) — UI, screens, components
+- [platform-engineer.md](platform-engineer.md) — CI/CD, infrastructure
+- [qa-engineer.md](qa-engineer.md) — Testing, quality verification
+- [security-engineer.md](security-engineer.md) — Security audits, auth review
 
-## Product & Design
+### Product & Design
 
-| Role | File | Purpose |
-|------|------|---------|
-| Product Manager | [product-manager.md](product-manager.md) | Defines what to build — specs, priorities |
-| UX Designer | [ux-designer.md](ux-designer.md) | Designs how it works — flows, wireframes |
-| UI Designer | [ui-designer.md](ui-designer.md) | Designs how it looks — visual, components |
+- [product-manager.md](product-manager.md) — Specs, priorities
+- [ux-designer.md](ux-designer.md) — Flows, wireframes
+- [ui-designer.md](ui-designer.md) — Visual design, components
 
----
+### Data & Growth
 
-## Data & Growth
+- [data-analyst.md](data-analyst.md) — Metrics, insights
+- [growth-engineer.md](growth-engineer.md) — Experiments, optimization
 
-| Role | File | Purpose |
-|------|------|---------|
-| Data Analyst | [data-analyst.md](data-analyst.md) | Analyzes data — metrics, insights |
-| Growth Engineer | [growth-engineer.md](growth-engineer.md) | Builds for growth — experiments, optimization |
+### Content & Support
 
----
+- [technical-writer.md](technical-writer.md) — Documentation, guides
+- [customer-success.md](customer-success.md) — User feedback synthesis
 
-## Content & Support
+### Operations
 
-| Role | File | Purpose |
-|------|------|---------|
-| Technical Writer | [technical-writer.md](technical-writer.md) | Writes documentation — guides, API docs |
-| Customer Success | [customer-success.md](customer-success.md) | Synthesizes feedback — user research |
-
----
-
-## Operations
-
-| Role | File | Purpose |
-|------|------|---------|
-| Project Manager | [project-manager.md](project-manager.md) | Tracks work — status, blockers |
-| Operations Manager | [operations-manager.md](operations-manager.md) | Optimizes process — workflows, efficiency |
-
+- [project-manager.md](project-manager.md) — Status tracking, blockers
+- [operations-manager.md](operations-manager.md) — Process optimization
