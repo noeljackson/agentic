@@ -129,8 +129,84 @@ In any project using this framework:
 | **Unit** | Test isolated functions/components | Fast |
 | **Integration** | Test modules working together | Medium |
 | **E2E** | Test full user flows | Slow |
+| **RLS** | Test database security policies | Fast |
 
-Prioritize: Many unit, some integration, few E2E.
+Prioritize: Many unit, some integration, few E2E. **RLS tests are mandatory for database changes.**
+
+---
+
+## Security Testing
+
+Security testing is not optional. For Supabase projects, RLS (Row-Level Security) tests are critical.
+
+### RLS Testing Requirements
+
+When database tables are added or modified:
+
+1. **Test access boundaries** — Users can only access their own data
+2. **Test role-based access** — Admins see what admins should see
+3. **Test cross-tenant isolation** — Org A can't see Org B's data
+4. **Test parent-child relationships** — Parents can access children's data
+
+### RLS Test Structure
+
+```typescript
+// __tests__/rls/profiles.test.ts
+
+describe('profiles RLS', () => {
+  it('users can read their own profile', async () => {
+    // Test with authenticated user
+  });
+
+  it('users cannot read other profiles', async () => {
+    // Test cross-user access is denied
+  });
+
+  it('users can update their own profile', async () => {
+    // Test self-update works
+  });
+
+  it('users cannot update other profiles', async () => {
+    // Test cross-user update is denied
+  });
+
+  it('admins can read all profiles in their org', async () => {
+    // Test admin access scope
+  });
+
+  it('admins cannot read profiles in other orgs', async () => {
+    // Test multi-tenant isolation
+  });
+});
+```
+
+### Security Test Checklist
+
+Before marking security-related work complete:
+
+- [ ] RLS policies tested for all new tables
+- [ ] Cross-user access denied
+- [ ] Cross-org access denied (multi-tenant)
+- [ ] Admin access properly scoped
+- [ ] Public data properly exposed (if applicable)
+- [ ] Sensitive fields protected
+
+### When to Escalate Security Concerns
+
+Escalate to Security Engineer when:
+- RLS tests fail unexpectedly
+- Complex permission logic discovered
+- Multi-tenant boundaries unclear
+- Authentication flow changes
+- New external API integrations
+
+### Security Testing Resources
+
+| Resource | Purpose |
+|----------|---------|
+| `docs/_RLS_STRATEGY.md` | Project RLS patterns |
+| `docs/_FRAGILE.md` | Security danger zones |
+| `__tests__/rls/` | Existing RLS tests |
 
 ## Bug Reports
 

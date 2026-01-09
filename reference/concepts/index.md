@@ -12,6 +12,7 @@ Deep dives on how the framework works.
 | Thinking Modes | [thinking-modes.md](thinking-modes.md) | Implementation vs Verification vs Optimization |
 | Orchestration | [orchestration.md](orchestration.md) | Human as conductor, autonomy levels |
 | Role Shifting | [role-shifting.md](role-shifting.md) | How Chief of Staff becomes specialists |
+| Danger Zones | [danger-zones.md](danger-zones.md) | Working safely with fragile code |
 
 ---
 

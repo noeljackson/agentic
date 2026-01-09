@@ -7,14 +7,39 @@ The closure protocol. Say `wrap` when you're done with a piece of work.
 ## What Happens
 
 1. **Update `_AGENTS.md`** — Mark work complete, add to "Recently Completed"
-2. **Write handoff** — If another role continues, leave notes
-3. **Update `_TODAY.md`** — What got done
-4. **Stage changes** — `git add` the relevant files
-5. **Code review** — Run `/code-review` on staged changes (for non-trivial work)
-6. **Address issues** — Fix blocking feedback before proceeding
-7. **Commit** — Show what's being committed, then commit with good message
-8. **Clean up** — Check for stale items, verify "done" means done
-9. **Report** — Summarize what shipped
+2. **Update `_SESSION_MEMO.md`** — Capture problem, root cause, solution, commits
+3. **Write handoff** — If another role continues, leave notes
+4. **Update `_TODAY.md`** — What got done
+5. **Stage changes** — `git add` the relevant files
+6. **Code review** — Run `/code-review` on staged changes (for non-trivial work)
+7. **Address issues** — Fix blocking feedback before proceeding
+8. **Commit** — Show what's being committed, then commit with good message
+9. **Clean up** — Check for stale items, verify "done" means done
+10. **Report** — Summarize what shipped
+
+---
+
+## Session Memo Format
+
+For bug fixes and changes, capture the full context:
+
+```markdown
+### [Feature/Fix Name] - COMPLETE ✅
+
+**Problem:** [User-facing issue or goal]
+
+**Root Cause:** [Why it happened]
+
+**Solution:**
+1. [Change 1] (`path/to/file.ts:line`)
+2. [Change 2] (`path/to/file.ts:line`)
+
+**Commits:** [hash] [message]
+
+**Deployed:** [OTA / Native / Not yet]
+```
+
+This helps future sessions understand *why* changes were made, not just *what* changed.
 
 ---
 

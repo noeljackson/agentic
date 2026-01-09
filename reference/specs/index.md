@@ -10,6 +10,7 @@ Protocol definitions — the authoritative source for how coordination works.
 |------|-----------------|
 | [coordination.md](coordination.md) | _AGENTS.md structure, handoff formats, decision queues |
 | [decisions.md](decisions.md) | Agent vs human decision rights, escalation patterns |
+| [feature-spec.md](feature-spec.md) | Feature specification format, task dependencies |
 
 ---
 
