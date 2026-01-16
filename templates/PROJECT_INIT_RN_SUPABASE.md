@@ -77,7 +77,24 @@ Create `docs/ARCHITECTURE-AUDIT.md`:
 
 ## Phase 2: Establish /lib Structure
 
-### 2.1 Core Directory Structure
+### 2.1 Quick Start with Scaffold Script
+
+**Option A: Automated (Recommended)**
+
+```bash
+# Copy and run scaffold script
+cp ~/.agentic/templates/scaffold-lib.sh ./
+chmod +x scaffold-lib.sh
+./scaffold-lib.sh
+```
+
+This creates the complete `/lib` structure with working starter files. Skip to Phase 3.
+
+**Option B: Manual Setup**
+
+Continue with sections 2.2-2.5 below to create files manually.
+
+### 2.2 Core Directory Structure
 
 ```
 lib/
@@ -110,7 +127,9 @@ lib/
 
 **→ See `RESPONSIVE_LAYOUT_SYSTEM.md` for complete `/lib/layout` implementation.**
 
-### 2.2 Create `/lib/config/env.ts`
+**→ See `scaffold-lib.sh` to automate creation of these files.**
+
+### 2.3 Create `/lib/config/env.ts`
 
 ```typescript
 /**
@@ -146,7 +165,7 @@ export const ENV = {
 } as const;
 ```
 
-### 2.3 Create `/lib/supabase/client.ts`
+### 2.4 Create `/lib/supabase/client.ts`
 
 ```typescript
 import { createClient } from '@supabase/supabase-js';
@@ -184,7 +203,7 @@ export async function fetchMany<T>(
 }
 ```
 
-### 2.4 Create `/lib/queries/keys.ts`
+### 2.5 Create `/lib/queries/keys.ts`
 
 ```typescript
 /**
@@ -215,7 +234,7 @@ export const queryKeys = {
 export type QueryKeyFactory = typeof queryKeys;
 ```
 
-### 2.5 Create `/lib/hooks/useAuth.ts`
+### 2.6 Create `/lib/hooks/useAuth.ts`
 
 ```typescript
 import { useCallback, useEffect, useState } from 'react';

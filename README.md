@@ -56,9 +56,16 @@ cp ~/.agentic/templates/CLAUDE.md ./
 cp ~/.agentic/templates/_FRAGILE.md ./docs/
 ```
 
+Then scaffold the `/lib` structure:
+```bash
+cp ~/.agentic/templates/scaffold-lib.sh ./
+chmod +x scaffold-lib.sh
+./scaffold-lib.sh
+```
+
 Then run initialization audit:
 ```
-I'm starting a new React Native + Expo + Supabase project. Please run through the initialization phases in ~/.agentic/templates/PROJECT_INIT_RN_SUPABASE.md to audit the codebase and establish proper architecture patterns.
+I'm starting a new React Native + Expo + Supabase project. I've run scaffold-lib.sh. Please continue with the initialization phases in ~/.agentic/templates/PROJECT_INIT_RN_SUPABASE.md to audit the codebase and complete the setup.
 ```
 
 Other stacks (minimal template):
@@ -108,6 +115,7 @@ Real projects hit 30,000+ lines of documentation supporting 180,000 lines of cod
 | `templates/CLAUDE-minimal.md` | Minimal template (any stack) |
 | `templates/PROJECT_INIT_RN_SUPABASE.md` | Initialization guide with audit & migration steps |
 | `templates/RESPONSIVE_LAYOUT_SYSTEM.md` | Complete `/lib/layout` for iPhone/iPad/web (CRITICAL) |
+| `templates/scaffold-lib.sh` | Automated script to create `/lib` structure |
 | `templates/_FRAGILE.md` | Danger zone documentation template |
 | `templates/_NEXT_SESSION_MEMO.md` | Session continuity — "I'm going to sleep" doc |
 | `templates/_VOCABULARY.md` | Canonical terms (optional) |

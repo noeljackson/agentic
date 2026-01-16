@@ -80,6 +80,14 @@ Also available in root templates:
 - Testing checklist, red flags, common mistakes
 - **Copy these files immediately when starting a project**
 
+**`scaffold-lib.sh`** (Automated Setup Script)
+- Bash script to create complete `/lib` structure
+- Creates all starter files: env.ts, client.ts, keys.ts, useAuth.ts, etc.
+- Includes basic layout files (constants, useLayout)
+- Creates docs/_FRAGILE.md and docs/ARCHITECTURE.md
+- Run once at project start to scaffold everything
+- **Pair with PROJECT_INIT_RN_SUPABASE.md**
+
 ### Core Documentation (`_*.md`)
 
 | File | Purpose | Who Updates |
