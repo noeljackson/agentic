@@ -637,5 +637,62 @@ You can debate alternatives forever. Or you can use this and start building.
 
 ---
 
+## Data Architecture Patterns
+
+For data-heavy projects (modeling, projections, scenario analysis), use the **single source of truth** pattern:
+
+### Architecture Flow
+
+```
+Database (Supabase Postgres)
+    ↓
+/lib/supabase/queries (typed CRUD with TanStack Query keys)
+    ↓
+/lib/models (calculations with DB fallbacks)
+    ↓
+/lib/hooks (TanStack Query wrappers with optimistic updates)
+    ↓
+Components (pure UI, no logic)
+```
+
+### Key Principles
+
+**1. No hardcoded data in UI**
+- All values come from database through `/lib`
+- Fallbacks in `/lib/models` for offline/SSR
+- Never define formatters in components
+
+**2. TanStack Query everywhere**
+- Key factories in `/lib/supabase/queries/keys.ts`
+- Optimistic updates with rollback
+- Invalidation keys match query keys exactly
+
+**3. SECURITY DEFINER for cross-table queries**
+- RLS policies must not query other RLS-protected tables
+- Use SECURITY DEFINER functions instead
+- Avoids RLS nesting issues
+
+**4. Verification scripts**
+- `scripts/verify-architecture.ts` catches violations
+- Runs after refactoring
+- Prevents drift from patterns
+
+### When to Use
+
+**Good for:**
+- Multi-scenario modeling
+- Projections with verified sources
+- Applications requiring audit trails
+- Research/analysis platforms
+
+**Not needed for:**
+- Simple CRUD apps
+- Static content
+- Apps without calculations
+
+See [`templates/project-types/data-modeling/PROJECT_INITIATION.md`](templates/project-types/data-modeling/PROJECT_INITIATION.md) for complete setup.
+
+---
+
 → Back to [README](README.md)
 

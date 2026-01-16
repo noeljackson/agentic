@@ -94,6 +94,37 @@ Real projects hit 30,000+ lines of documentation supporting 180,000 lines of cod
 
 ---
 
+## Project-Specific Templates
+
+Beyond general templates, agentic includes specialized project patterns:
+
+### Data Modeling Projects
+
+**Location:** `templates/project-types/data-modeling/`
+
+For projects with:
+- Complex data projections and scenarios
+- Database-driven calculations
+- Verified claims with sources
+- Multi-scenario analysis
+
+**What you get:**
+- Complete database schema (claims, scenarios, projections)
+- `/lib` structure with single source of truth pattern
+- TanStack Query integration with optimistic updates
+- Verification scripts to catch architecture violations
+- Seed data scripts
+
+**When to use:**
+- Modeling applications (economic, infrastructure, population)
+- Research/analysis platforms
+- Tools with multiple scenario comparisons
+- Apps requiring audit trails for data changes
+
+See [`templates/project-types/data-modeling/PROJECT_INITIATION.md`](templates/project-types/data-modeling/PROJECT_INITIATION.md) for the complete setup guide.
+
+---
+
 ## Skills
 
 | Command | What |

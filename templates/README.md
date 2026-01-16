@@ -112,6 +112,31 @@ status: draft|approved|in_progress|shipped|implemented|superseded
 
 ---
 
+## Project-Specific Templates
+
+Beyond general documentation templates, specialized project patterns are available in `project-types/`:
+
+### Data Modeling Projects
+
+**Location:** `project-types/data-modeling/`
+
+For projects with complex data projections, scenarios, and database-driven calculations:
+- Complete Supabase schema (claims, scenarios, projections)
+- `/lib` structure with single source of truth pattern
+- TanStack Query with optimistic updates
+- Verification scripts to catch violations
+- Seed data scripts
+
+See [`project-types/data-modeling/PROJECT_INITIATION.md`](project-types/data-modeling/PROJECT_INITIATION.md) for setup guide.
+
+**When to use:**
+- Modeling applications (economic, infrastructure, population)
+- Research/analysis platforms
+- Multi-scenario analysis tools
+- Apps requiring audit trails
+
+---
+
 ## Best Practices
 
 1. **Keep docs current** — Update after significant changes

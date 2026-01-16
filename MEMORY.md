@@ -25,6 +25,8 @@
 - Data layer (DB clients, API clients) only in lib/ — components and hooks use lib/ abstractions
 - All imports must come before any code — no inline imports after statements
 - Remove unused variables immediately — don't leave them for later cleanup
+- For data-heavy projects: use single source of truth pattern (DB → /lib/models → hooks → components)
+  - See `templates/project-types/data-modeling/PROJECT_INITIATION.md` for complete architecture
 
 ---
 
@@ -44,6 +46,8 @@
 - Invalidation keys must exactly match query keys
 - Invalidate on context switches (org, user, kid mode)
 - Optimistic updates: onMutate (cancel + store previous), onError (rollback)
+- For data modeling projects: centralized key factories in `/lib/supabase/queries/keys.ts`
+  - See data architecture pattern in `templates/project-types/data-modeling/`
 
 ---
 
