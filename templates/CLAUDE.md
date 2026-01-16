@@ -2,6 +2,10 @@
 
 > Read this file at the start of every session.
 
+**New project?** Run the initialization audit first: see `PROJECT_INIT_RN_SUPABASE.md` for step-by-step setup and architecture migration.
+
+---
+
 ## Stack
 
 - **Runtime**: TypeScript, React Native (Expo), EAS builds (web/iOS/Android)

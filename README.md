@@ -56,6 +56,11 @@ cp ~/.agentic/templates/CLAUDE.md ./
 cp ~/.agentic/templates/_FRAGILE.md ./docs/
 ```
 
+Then run initialization audit:
+```
+I'm starting a new React Native + Expo + Supabase project. Please run through the initialization phases in ~/.agentic/templates/PROJECT_INIT_RN_SUPABASE.md to audit the codebase and establish proper architecture patterns.
+```
+
 Other stacks (minimal template):
 ```bash
 cp ~/.agentic/templates/CLAUDE-minimal.md ./CLAUDE.md
@@ -101,6 +106,7 @@ Real projects hit 30,000+ lines of documentation supporting 180,000 lines of cod
 | `MEMORY.md` | Behavioral constraints to add to `/memory` |
 | `templates/CLAUDE.md` | Comprehensive template (React Native + Supabase) |
 | `templates/CLAUDE-minimal.md` | Minimal template (any stack) |
+| `templates/PROJECT_INIT_RN_SUPABASE.md` | Initialization guide with audit & migration steps |
 | `templates/_FRAGILE.md` | Danger zone documentation template |
 | `templates/_NEXT_SESSION_MEMO.md` | Session continuity — "I'm going to sleep" doc |
 | `templates/_VOCABULARY.md` | Canonical terms (optional) |

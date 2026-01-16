@@ -58,12 +58,20 @@ Also available in root templates:
 - Includes architectural patterns, responsive layout guide, red flags table
 - Opinionated: assumes TypeScript, TanStack Query, RLS
 - Use when building with the default stack (see `TECH_STACK.md`)
+- **Pair with:** `PROJECT_INIT_RN_SUPABASE.md` for initialization audit
 
 **`CLAUDE-minimal.md`** (Generic — Any Stack)
 - Minimal template for projects using different stacks
 - No assumptions about framework or database
 - Fill-in-the-blank format
 - Use when React Native/Supabase doesn't fit
+
+**`PROJECT_INIT_RN_SUPABASE.md`** (Initialization Guide)
+- Step-by-step initialization for React Native + Supabase projects
+- Audit existing codebase for violations
+- Migrate to proper `/lib` structure
+- Database setup and RLS verification
+- Use at project start or when refactoring existing projects
 
 ### Core Documentation (`_*.md`)
 
