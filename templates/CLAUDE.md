@@ -317,6 +317,18 @@ export function useAdaptiveNavigation() {
 
 ---
 
+## Third-Party Services
+
+**Priority:** Supabase ecosystem first, then proven integrations.
+
+See `templates/_THIRD_PARTY_SERVICES.md` for comprehensive checklist including:
+- Supabase features (Edge Functions, Storage, Realtime, Vault, Cron, Webhooks)
+- Resend (email), Sentry (errors), Stripe/RevenueCat (payments)
+- Vimeo (video), Anthropic (AI), Whoop (wearables)
+- Complete setup guides and security patterns
+
+---
+
 ## Documentation Locations
 
 | File | Purpose |
@@ -326,3 +338,4 @@ export function useAdaptiveNavigation() {
 | `docs/RLS-POLICIES.md` | All RLS policies |
 | `docs/_FRAGILE.md` | Danger zones |
 | `docs/_NEXT_SESSION_MEMO.md` | Session handoff |
+| `docs/_PLATFORM_ACCOUNTS.md` | Third-party service setup |

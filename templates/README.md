@@ -98,6 +98,7 @@ Also available in root templates:
 | `_DEV_SETUP.md` | Environment setup guide | Engineers |
 | `_FRAGILE.md` | Danger zones, gotchas, edge cases | Anyone who discovers issues |
 | `_PLATFORM_ACCOUNTS.md` | API keys, service accounts, OAuth setup | Ops/Engineers |
+| `_THIRD_PARTY_SERVICES.md` | Complete checklist of recommended services | Reference (copy to project) |
 | `_RELEASES.md` | Deployment procedures, version management | Engineers |
 | `_RELEASE_NOTES.md` | Changelog, version history | Release manager |
 | `_SCHEMA.md` | Database tables, relationships, queries | Engineers |

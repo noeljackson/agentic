@@ -163,6 +163,7 @@ For apps with projections, scenarios, verified claims:
 | `templates/_NEXT_SESSION_MEMO.md` | Session continuity |
 | `templates/_VOCABULARY.md` | Canonical terms |
 | `templates/_DEVELOPMENT_WORKFLOW.md` | Development phases |
+| `templates/_THIRD_PARTY_SERVICES.md` | Complete third-party services checklist |
 | **Project Types** | |
 | `templates/project-types/data-modeling/` | Data modeling patterns |
 | **Global** | |
