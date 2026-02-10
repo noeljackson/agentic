@@ -42,6 +42,14 @@ esac
 
 echo "Installing agentic..."
 
+# Remove stale symlinks before creating directories
+for dir in commands plugins; do
+  if [ -L "$CLAUDE_DIR/$dir" ]; then
+    echo "  Removing stale symlink: $CLAUDE_DIR/$dir"
+    rm "$CLAUDE_DIR/$dir"
+  fi
+done
+
 # Create ~/.claude structure
 mkdir -p "$CLAUDE_DIR/commands"
 mkdir -p "$CLAUDE_DIR/plugins"
@@ -74,6 +82,12 @@ if [ -f "$SCRIPT_DIR/.claude/settings.local.json" ]; then
   ln -sf "$SCRIPT_DIR/.claude/settings.local.json" "$target"
   echo "  Linked: settings.local.json"
 fi
+
+# Symlink MEMORY.md as global CLAUDE.md
+target="$CLAUDE_DIR/CLAUDE.md"
+[ -L "$target" ] && rm "$target"
+ln -sf "$SCRIPT_DIR/MEMORY.md" "$target"
+echo "  Linked: CLAUDE.md -> MEMORY.md"
 
 echo ""
 echo "Agentic installed. Run './setup.sh --status' to verify."

@@ -16,7 +16,7 @@ End-of-session workflow. The "I'm going to sleep" command.
 
 2. **Stage and commit** (if changes exist)
    - Clear commit message
-   - Include Co-Authored-By line
+   - No co-author lines or footers
 
 3. **Update session memo** (if `docs/_NEXT_SESSION_MEMO.md` exists)
    - What shipped this session
