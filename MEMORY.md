@@ -1,5 +1,7 @@
 # Development Standards
 
+> Every line was earned. Read `docs/lessons/` for why these rules exist.
+
 ## Before Any Change
 
 - Run lint and tests first — never break them
@@ -7,6 +9,17 @@
 - Auth/payments/RLS: extra review required
 - Don't refactor code you weren't asked to touch
 - Don't add features beyond what's asked
+
+---
+
+## Documentation > Generated Context
+
+Your defaults are anti-patterns at scale. Documentation overrides them.
+
+- Read CLAUDE.md before producing anything
+- The docs are more trustworthy than whatever you're about to generate
+- When wrong, stop — don't defend with eloquence
+- See `docs/lessons/EVERY_LINE_EARNED.md` for why
 
 ---
 
@@ -26,45 +39,6 @@
 - All imports must come before any code — no inline imports after statements
 - Remove unused variables immediately — don't leave them for later cleanup
 - For data-heavy projects: use single source of truth pattern (DB → /lib/models → hooks → components)
-  - See `templates/project-types/data-modeling/PROJECT_INITIATION.md` for complete architecture
-
----
-
-## Supabase & RLS
-
-**ALWAYS use the Supabase SDK (@supabase/supabase-js)**
-- Never write direct database queries or custom database connections
-- Use `.from()`, `.select()`, `.insert()`, `.update()`, `.delete()` from the SDK
-- For complex queries, use Supabase RPC functions (call via `.rpc()`)
-- Direct SQL is ONLY for: migrations, RLS policies, database functions (in Supabase dashboard)
-- Import from `lib/supabase/client.ts`, never create multiple clients
-
-**RLS & Data Access**
-- RLS policies must never query other RLS-protected tables — use SECURITY DEFINER helpers
-- Test RLS as: owner, member, visitor, unauthenticated
-- Nested selects (`select('*, relation(*)')`) return different shapes — validate before accessing
-- Profile ID ≠ Auth User ID — pre-staged profiles have null auth_user_id
-- `timestamptz` always, never `timestamp`
-
----
-
-## TanStack Query
-
-- Query key factories, not string literals
-- Invalidation keys must exactly match query keys
-- Invalidate on context switches (org, user, kid mode)
-- Optimistic updates: onMutate (cancel + store previous), onError (rollback)
-- For data modeling projects: centralized key factories in `/lib/supabase/queries/keys.ts`
-  - See data architecture pattern in `templates/project-types/data-modeling/`
-
----
-
-## Expo & React Native
-
-- Never use `process.env.EXPO_PUBLIC_*` directly — import from centralized config
-- iOS SecureStore: 2048 byte limit, tokens must be chunked
-- Modal + WebView doesn't composite — use absolute positioning for video
-- useEffect with async: `let cancelled = false`, check before setState
 
 ---
 
@@ -80,11 +54,11 @@
 
 - `as any` is a last resort — if you cast the same thing repeatedly, create a typed wrapper
 - Acceptable casts: test mocks, platform-specific code with documented @ts-ignore
-- Supabase query results: use typed helpers in lib/, not inline casts in components
+- Query results: use typed helpers in lib/, not inline casts in components
 
 ---
 
-## Multi-Tenant / Multi-Org
+## Context-Based IDs
 
 - Org/tenant ID constants only in: scripts/, provider fallbacks, seed data
 - App runtime code must get org ID from context (useOrganization, currentOrg.id)
@@ -94,16 +68,11 @@
 
 ## Red Flags
 
-- Direct SQL queries in code (use Supabase SDK: `.from()`, `.select()`, etc.)
-- Multiple `createClient` calls (use single client from `lib/supabase/client.ts`)
-- Custom database connections (use Supabase SDK only)
 - `as any` on anything except test mocks
 - `.then()` without `.catch()`
 - Optimistic updates without rollback
 - Query invalidation keys that don't match
 - useEffect async without cleanup
-- RLS policies querying other RLS tables
-- `process.env.EXPO_PUBLIC_*` in runtime code
 - useCallback/useEffect missing context values in deps (org, tenant, user IDs)
 - Direct DB/API client imports outside lib/
 - Files approaching 300 lines without a plan to split
@@ -126,10 +95,7 @@
 
 - For open-ended exploration ("where does X happen?"): use Task(Explore), not direct Glob/Grep
 - For complex features: use EnterPlanMode to get user sign-off before implementing
-- For e2e click-through testing: use Chrome integration (`/chrome`), not external test frameworks
-- For external library docs: Context7 MCP provides live documentation lookup
 - For background work: Task with `run_in_background: true` for long-running operations
-- For feature development: `/feature-dev` skill provides 7-phase guided workflow
 - For quick searches with known patterns: direct Glob/Grep is faster than spawning agents
 
 ---
@@ -143,8 +109,6 @@
 | `Explore` | "Where does X happen?" | Haiku (fast/cheap) | Read-only |
 | `Plan` | Architecture decisions before coding | Inherits | Read-only |
 | `general-purpose` | Multi-step research + implementation | Inherits | Full access |
-| `feature-dev:code-architect` | Feature blueprints | Inherits | Read-only |
-| `feature-dev:code-reviewer` | PR-quality code review | Inherits | Read-only |
 
 **Parallel vs sequential:**
 - Independent research: spawn multiple Explore agents in parallel
@@ -159,7 +123,6 @@
 **Cost optimization:**
 - Route read-only tasks to Haiku via `model: "haiku"`
 - Use Explore (not general-purpose) for codebase scanning
-- Forked skills (`context: fork`) isolate context — don't pollute main conversation
 
 ---
 
@@ -186,22 +149,10 @@ For non-trivial features, use plan mode:
 
 ---
 
-## MCP & Live Documentation
+## Git Commits
 
-**Context7** provides live framework docs. Use when:
-- API changed since training cutoff
-- Version-specific features (Next.js 14 vs 15)
-- Unfamiliar library patterns
-- Verifying current best practices
-
-**Don't over-rely on Context7:**
-- Well-established patterns (React hooks, Express routes) — training data is fine
-- Project-specific code — Context7 doesn't know your codebase
-- Performance-sensitive queries — adds latency
-
-**MCP scope patterns:**
-- `.mcp.json` (project root): team-shared integrations
-- `~/.claude.json` (user): personal utilities across projects
+- NEVER add co-author lines (Co-Authored-By) to commits
+- NEVER add co-author trailers of any kind
 
 ---
 
@@ -211,5 +162,17 @@ For non-trivial features, use plan mode:
 - End sessions with `/wrap` — updates docs, commits, writes next session memo
 - Use `/sup` for quick status checks mid-session
 - Check `/fragile` before touching documented danger zones
-- For deep research: use `/research` skill (runs in forked context)
-- Read `docs/dialogues/` for context on engineering expectations — every lesson was earned
+- Use `/lessons` to surface relevant learned patterns
+- Read `docs/lessons/` for context on engineering expectations — every lesson was earned
+
+---
+
+## Stack-Specific Standards
+
+For project-specific patterns, see templates:
+
+- **Tamagui monorepo:** `templates/CLAUDE-tamagui-monorepo.md`
+- **Supabase patterns:** `templates/project-types/supabase/`
+- **Data modeling:** `templates/project-types/data-modeling/`
+
+Copy relevant templates to your project and customize.
