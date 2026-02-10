@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "multimodel": {
+      "command": "npx",
+      "args": ["tsx", "mcp-servers/multimodel/src/index.ts"]
+    },
+    "serverless": {
+      "command": "npx",
+      "args": ["tsx", "mcp-servers/serverless/src/index.ts"]
+    }
+  }
+}
