@@ -19,6 +19,7 @@ case "${1:-}" in
     ls -la "$CLAUDE_DIR/plugins/" 2>/dev/null | grep -- '->'
     echo ""
     echo "Settings:"
+    ls -la "$CLAUDE_DIR/settings.json" 2>/dev/null
     ls -la "$CLAUDE_DIR/settings.local.json" 2>/dev/null
     exit 0
     ;;
@@ -26,6 +27,7 @@ case "${1:-}" in
     echo "Removing agentic symlinks..."
     find "$CLAUDE_DIR/commands" -type l -lname "$SCRIPT_DIR/*" -delete 2>/dev/null || true
     [ -L "$CLAUDE_DIR/plugins/superpowers" ] && rm "$CLAUDE_DIR/plugins/superpowers"
+    [ -L "$CLAUDE_DIR/settings.json" ] && rm "$CLAUDE_DIR/settings.json"
     [ -L "$CLAUDE_DIR/settings.local.json" ] && rm "$CLAUDE_DIR/settings.local.json"
     echo "Done."
     exit 0
@@ -75,7 +77,15 @@ if [ -d "$SCRIPT_DIR/.claude/plugins/superpowers" ]; then
   echo "  Linked: plugins/superpowers"
 fi
 
-# Symlink settings.local.json
+# Symlink settings.json (shared permissions)
+if [ -f "$SCRIPT_DIR/.claude/settings.json" ]; then
+  target="$CLAUDE_DIR/settings.json"
+  [ -L "$target" ] && rm "$target"
+  ln -sf "$SCRIPT_DIR/.claude/settings.json" "$target"
+  echo "  Linked: settings.json"
+fi
+
+# Symlink settings.local.json (personal overrides)
 if [ -f "$SCRIPT_DIR/.claude/settings.local.json" ]; then
   target="$CLAUDE_DIR/settings.local.json"
   [ -L "$target" ] && rm "$target"
